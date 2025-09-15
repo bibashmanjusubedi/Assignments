@@ -19,4 +19,4 @@
 * ![subtract](fourthProgramSubtract.png)
 * ![multply](fourthProgramMultiply.png)
 * ![divide](fourthProgramDivide.png)
-* !(compoundInterest)(fourthProgramCI.png)
+* ![compoundInterest](fourthProgramCI.png)

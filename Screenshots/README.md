@@ -6,17 +6,17 @@
 [Assignment4 Screenshot](#Assignment4)
 
 ## Assignment1
-* [Assignment 1](firstProgram.png)
+* ![Assignment 1](firstProgram.png)
 
 ## Assignment2
-* [Assignment2](secondProgram.png)
+* ![Assignment2](secondProgram.png)
 
 ## Assignment3
-* [Assignment3](thirdProgram.png)
+* ![Assignment3](thirdProgram.png)
 
 ## Assignment4
-* [add](fourthProgramAdd.png)
-* [subtract](fourthProgramSubtract.png)
-* [multply](fourthProgramMultiply.png)
-* [divide](fourthProgramDivide.png)
-* (compoundInterest)(fourthProgramCI.png)
+* ![add](fourthProgramAdd.png)
+* ![subtract](fourthProgramSubtract.png)
+* ![multply](fourthProgramMultiply.png)
+* ![divide](fourthProgramDivide.png)
+* !(compoundInterest)(fourthProgramCI.png)

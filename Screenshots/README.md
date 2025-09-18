@@ -7,6 +7,7 @@
 [Assignment5 Screenshot](#Assignment5)
 [Assignment5 Project](#Assignment5Project)
 [Assignment6 Screenshot](#Assignment6)
+[Assignment7 Screenshot](#Assignment7)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -36,3 +37,8 @@
 * ![guessingGame](guessingGame.png)
 * ![evenSum](evenSum.png)
 * ![patternPrinting](patternPrinting.png)
+
+## Assignment7
+* ![studentGrade](studentGrade.png)
+* ![bubbleSort](bubbleSort.png)
+* ![weeklyTemp](weeklyTemp.png)

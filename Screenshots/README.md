@@ -8,6 +8,7 @@
 [Assignment5 Project](#Assignment5Project)
 [Assignment6 Screenshot](#Assignment6)
 [Assignment7 Screenshot](#Assignment7)
+[Assignment8 Screenshot](#Assignment8)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -42,3 +43,8 @@
 * ![studentGrade](studentGrade.png)
 * ![bubbleSort](bubbleSort.png)
 * ![weeklyTemp](weeklyTemp.png)
+
+## Assignment8
+* ![areaCalculator](areaCalculator.png)
+* ![primeNo](primeNo.png)
+* ![factorial](factorial.png)

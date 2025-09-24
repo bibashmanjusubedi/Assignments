@@ -51,5 +51,5 @@
 * ![factorial](factorial.png)
 
 ## Assignment9
-* ![stringUtilties](stringUtilties.png)
+* ![stringUtilties](stringUtilities.png)
 * ![refactored](refactored.png)

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Assignment9;
 class Student
 {
     public string Name { get; set; }
@@ -80,6 +80,10 @@ class Program
 
                     students.Add(new Student { Name = name, Grade = grade });
                     Console.WriteLine("Student grade added.");
+                    Console.WriteLine($"No of words in Student = {StringUtilities.CountWords(name)}");
+                    Console.WriteLine($"Reversed Name = {StringUtilities.ReverseString(name)}");
+                    Console.WriteLine($"Is Palindrome = {StringUtilities.IsPalindrome(name)}");
+                    Console.WriteLine($"Student Name without spaces = {StringUtilities.RemoveSpaces(name)}");
                     break;
 
                 case "2":

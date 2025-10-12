@@ -1,5 +1,18 @@
 ﻿using System;
 
+// Custom exception for insufficient funds
+
+public class  InsufficientFundsException : Exception
+{
+    public InsufficientFundsException():base("Insufficient funds for this operation.")
+    {
+    }
+    public InsufficientFundsException(string message)
+    : base(message)
+    {
+    }
+}
+
 public class BankAccount
 {
     public string AccountNo { get; set; }
@@ -37,7 +50,7 @@ public class BankAccount
         if (amount <= 0)
             throw new ArgumentException("Withdrawal amount must be positive.");
         if (amount > Balance)
-            throw new InvalidOperationException("Insufficient funds.");
+            throw new InsufficientFundsException("Insufficient funds.");
         Balance -= amount;
     }
 
@@ -54,9 +67,27 @@ class Program
     {
         BankAccount account = new BankAccount("ACC001", "John Doe", 1000);
 
-        account.Deposit(500);
-        account.Withdraw(200);
-        
-        Console.WriteLine($"Account No: {account.AccountNo} with Current Balance :{account.GetBalance()} belongs to {account.OwnerName}");
+        try
+        {
+            account.Deposit(500);
+            account.Withdraw(2000); // This will trigger InsufficientFundsException
+            Console.WriteLine($"Account No: {account.AccountNo} with Current Balance: {account.GetBalance()} belongs to {account.OwnerName}");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Argument error: {ex.Message}");
+        }
+        catch (InsufficientFundsException ex)
+        {
+            Console.WriteLine($"Custom error: {ex.Message}");
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine($"Operation error: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"General error: {ex.Message}");
+        }
     }
 }

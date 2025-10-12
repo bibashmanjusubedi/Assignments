@@ -20,6 +20,7 @@
 [Assignment15 Screenshot](#Assigment15)
 [Assignment15 Project](#Assigment15Project)
 [Assignment16 Screenshot](#Assignment16)
+[Assignment17 Screenshot](#Assignment17)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -93,3 +94,6 @@
 
 ## Assignment12R
 * ![insufficientFunds](insufficientFunds.png)
+
+## Asssignment17
+* ![fileReader](fileReader.png)

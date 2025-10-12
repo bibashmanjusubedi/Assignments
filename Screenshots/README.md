@@ -18,6 +18,7 @@
 [InterfacePresentation Screenshot](#Interface)
 [Assignment15 Screenshot](#Assigment15)
 [Assignment15 Project](#Assigment15Project)
+[Assignment16 Screenshot](#Assignment16)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -85,3 +86,6 @@
 
 ## Assigment15Project
 * ![zoo](zoo.png)
+
+## Assignment16
+* ![inheritInterface](inheritInterface.png)

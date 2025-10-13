@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment16", "Assignment1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment17", "Assignment17\Assignment17.csproj", "{424A14D9-76FD-4598-8953-FA125EC37DE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomException", "CustomException\CustomException.csproj", "{4D108292-3B82-4107-9D13-289E3F5E339F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,10 @@ Global
 		{424A14D9-76FD-4598-8953-FA125EC37DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424A14D9-76FD-4598-8953-FA125EC37DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424A14D9-76FD-4598-8953-FA125EC37DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D108292-3B82-4107-9D13-289E3F5E339F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D108292-3B82-4107-9D13-289E3F5E339F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D108292-3B82-4107-9D13-289E3F5E339F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D108292-3B82-4107-9D13-289E3F5E339F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

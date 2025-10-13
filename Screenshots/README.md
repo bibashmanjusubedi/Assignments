@@ -21,6 +21,7 @@
 [Assignment15 Project](#Assigment15Project)
 [Assignment16 Screenshot](#Assignment16)
 [Assignment17 Screenshot](#Assignment17)
+[CustomException Screenshot](#CustomException)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -97,3 +98,6 @@
 
 ## Asssignment17
 * ![fileReader](fileReader.png)
+
+## CustomException
+* ![customException](customException.png)

@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment22StudentRecordSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment22ProductInventorySystem", "Assignment22ProductInventorySystem\Assignment22ProductInventorySystem.csproj", "{29FD785D-8F73-4044-A1F2-A8C67BD867FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment23", "Assignment23\Assignment23.csproj", "{BAD33045-C572-40C6-AEB1-9E511EEE258C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,10 @@ Global
 		{29FD785D-8F73-4044-A1F2-A8C67BD867FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29FD785D-8F73-4044-A1F2-A8C67BD867FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29FD785D-8F73-4044-A1F2-A8C67BD867FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD33045-C572-40C6-AEB1-9E511EEE258C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD33045-C572-40C6-AEB1-9E511EEE258C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD33045-C572-40C6-AEB1-9E511EEE258C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD33045-C572-40C6-AEB1-9E511EEE258C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,6 +29,7 @@
 [Assignment22: StudentRecordSystem Screenshot](#Assignment22 StudentRecordSystem)
 [Assignment22: ProductInventorySystem Screenshot](#Assignment22 ProductInventorySystem)
 [Assignment23](#Assignment23)
+[Assignment24)(#Assignment24)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -127,5 +128,8 @@
 ## Assignment22 ProductInventorySystem
 * ![productInventorySystem](productInventorySystem.png)
 
-## Assignmenr 23
+## Assignment 23
 * ![schoolDatabase](schoolDatabase.png)
+
+## Assignment 24
+* ![schoolSys](schoolSys.png)

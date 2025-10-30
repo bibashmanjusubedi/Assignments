@@ -1,6 +1,8 @@
 ﻿using Assignment24;
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 class Program
 {
@@ -8,44 +10,140 @@ class Program
     {
         using var db = new SchoolContext();
 
-        var student1 = new Student { Name = "Bibash", Grade = "B", Enrollment = DateTime.Now };
-        db.Students.Add(student1);
-
-        var student2 = new Student { Name = "Hasan", Grade = "A", Enrollment = DateTime.Now };
-        db.Students.Add(student2);
-
-        var student3 = new Student { Name = "Nishil", Grade = "A", Enrollment = DateTime.Now };
-        db.Students.Add(student3);
+        // Clear existing data (optional, ensure for demo repeatability)
+        db.Grades.RemoveRange(db.Grades);
+        db.Students.RemoveRange(db.Students);
+        db.Courses.RemoveRange(db.Courses);
         db.SaveChanges();
-        Console.WriteLine("Added students");
 
-        // Query students
-        Console.WriteLine("All students:");
-        foreach (var s in db.Students.ToList())
-            Console.WriteLine($"{s.Id}: {s.Name}, Grade->{s.Grade}, Enrolled->{s.Enrollment}");
+        // Seed Courses
+        var math = new Course { Title = "Math" };
+        var science = new Course { Title = "Science" };
+        db.Courses.AddRange(math, science);
+        db.SaveChanges();
 
-        // Query by criteria
-        var query = db.Students.Where(s => s.Grade == "A");
-        Console.WriteLine("Students with grade A:");
-        foreach (var s in query)
-            Console.WriteLine($"{s.Id}: {s.Name}");
-
-        // Update student
-        var studentToUpdate = db.Students.FirstOrDefault();
-        if (studentToUpdate != null)
+        // Seed Students with Courses and Grades
+        var student1 = new Student
         {
-            studentToUpdate.Grade = "B+";
-            db.SaveChanges();
-            Console.WriteLine("Updated student grade.");
+            Name = "Bibash",
+            Enrollment = DateTime.Now,
+            Courses = { math, science },
+            Grades =
+            {
+                new Grade { GradeValue = "85" },
+                new Grade { GradeValue = "90" }
+            }
+        };
+        var student2 = new Student
+        {
+            Name = "Hasan",
+            Enrollment = DateTime.Now,
+            Courses = { math },
+            Grades =
+            {
+                new Grade { GradeValue = "95" }
+            }
+        };
+        var student3 = new Student
+        {
+            Name = "Nishil",
+            Enrollment = DateTime.Now,
+            Courses = { science },
+            Grades =
+            {
+                new Grade { GradeValue = "88" }
+            }
+        };
+
+        db.Students.AddRange(student1, student2, student3);
+        db.SaveChanges();
+        Console.WriteLine("Seeded students, courses, grades.");
+
+        // 1. Students enrolled in a specific course (e.g. "Math")
+        string courseName = "Math";
+        var studentsInCourse = db.Courses
+            .Include(c => c.Students)
+            .Where(c => c.Title == courseName)
+            .SelectMany(c => c.Students)
+            .Distinct()
+            .ToList();
+
+        Console.WriteLine($"\nStudents enrolled in {courseName}:");
+        foreach (var s in studentsInCourse)
+        {
+            Console.WriteLine($"- {s.Name}");
         }
 
-        // Delete student
-        var studentToDelete = db.Students.FirstOrDefault();
-        if (studentToDelete != null)
+        string courseName2 = "Science";
+        var studentsInCourse2 = db.Courses
+            .Include(c => c.Students)
+            .Where(c => c.Title == courseName2)
+            .SelectMany(c => c.Students)
+            .Distinct()
+            .ToList();
+
+        Console.WriteLine($"\nStudents enrolled in {courseName2}:");
+        foreach (var s in studentsInCourse2)
         {
-            db.Students.Remove(studentToDelete);
-            db.SaveChanges();
-            Console.WriteLine("Deleted student.");
+            Console.WriteLine($"- {s.Name}");
         }
+
+
+        // 2. Average grades per course with null checks
+        var avgGrades = db.Courses
+            .Include(c => c.Students)
+                .ThenInclude(st => st.Grades)
+            .AsEnumerable()  // Switch to client-side evaluation from here on
+            .Select(c => new
+            {
+                Course = c.Title,
+                AverageGrade = (c.Students ?? new List<Student>())
+                    .SelectMany(st => st.Grades ?? new List<Grade>())
+                    .Where(g => !string.IsNullOrEmpty(g.GradeValue))
+                    .Select(g => ParseGrade(g.GradeValue))
+                    .DefaultIfEmpty(0)
+                    .Average()
+            })
+            .ToList();
+
+
+        Console.WriteLine("\nAverage grades per course:");
+        foreach (var item in avgGrades)
+        {
+            Console.WriteLine($"{item.Course}: {item.AverageGrade:F2}");
+        }
+
+        var studentsGpa = db.Students
+            .Include(s => s.Grades)
+            .AsEnumerable()  // Switch to client evaluation here
+            .Select(s => new
+            {
+                Student = s,
+                GPA = (s.Grades ?? new List<Grade>())
+                    .Where(g => !string.IsNullOrEmpty(g.GradeValue))
+                    .Select(g => ParseGrade(g.GradeValue))
+                    .DefaultIfEmpty(0)
+                    .Average()
+            })
+            .OrderByDescending(s => s.GPA)
+            .ToList();
+
+
+        var highestGpa = studentsGpa.FirstOrDefault()?.GPA ?? 0;
+        var topStudents = studentsGpa.Where(s => s.GPA == highestGpa).Select(s => s.Student);
+
+        Console.WriteLine("\nStudents with highest GPA:");
+        foreach (var s in topStudents)
+        {
+            Console.WriteLine($"{s.Name} - GPA: {highestGpa:F2}");
+        }
+    }
+
+    private static int ParseGrade(string grade)
+    {
+        if (string.IsNullOrEmpty(grade))
+            return 0;
+
+        return int.TryParse(grade, out int val) ? val : 0;
     }
 }

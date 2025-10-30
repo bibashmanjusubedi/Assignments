@@ -1,0 +1,31 @@
+﻿html, body {
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+    background-color:white;
+}
+
+form{
+    background-color:black;
+    color:white;
+}
+
+form input{
+    background-color:black;
+    color:white;
+    border:2px solid yellow;
+}
+
+button{
+    background:blue;
+    border-radius:2px;
+    color:white;
+}

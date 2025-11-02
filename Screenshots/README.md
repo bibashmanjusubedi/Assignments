@@ -32,6 +32,7 @@
 [Assignment24](#Assignment24)
 [Assignment25](#Assignment25)
 [Assignment26](#Assignment26)
+[Assignment27](#Assignment27)
 
 ## Assignment1
 * ![Assignment 1](firstProgram.png)
@@ -141,3 +142,6 @@
 
 ## Asssignment26
 * ![form](form.png)
+
+## Assignment27
+* ![studentInfoMVC](studentInfoMVC.png)

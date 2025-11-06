@@ -55,5 +55,36 @@ namespace Assignment27.Controllers
             return View(student);
         }
 
+        // GET: Student/Edit/5
+        public IActionResult Edit(int id)
+        {
+            var student = students.FirstOrDefault(s => s.Id == id);
+            if (student == null)
+                return NotFound();
+
+            return View(student);
+        }
+
+        // POST: Student/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingStudent = students.FirstOrDefault(s => s.Id == student.Id);
+                if (existingStudent == null)
+                    return NotFound();
+
+                existingStudent.Name = student.Name;
+                existingStudent.Age = student.Age;
+                existingStudent.Email = student.Email;
+
+                return RedirectToAction("Index");
+            }
+            return View(student);
+        }
+
+
     }
 }

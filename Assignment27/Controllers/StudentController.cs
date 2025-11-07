@@ -19,11 +19,18 @@ namespace Assignment27.Controllers
 
 
         // GET: /Student/Index
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var students = await _context.Students.ToListAsync();
-            return View(students);
+            var students = from s in _context.Students select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(await students.ToListAsync());
         }
+
 
         // GET: /Student/Details/5
         public async Task<IActionResult> Details(int id)
@@ -78,6 +85,22 @@ namespace Assignment27.Controllers
             }
             return View(student);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            if (student == null)
+                return NotFound();
+
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
 
 
     }

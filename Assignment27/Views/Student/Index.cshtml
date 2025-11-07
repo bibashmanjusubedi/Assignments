@@ -1,8 +1,19 @@
-﻿@model List<Assignment27.Models.Student>
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<Assignment27.Models.Student>
 
 <h2>Student List</h2>
 
 <a asp-action="Create">Add New Student</a>
+
+<form method="get" class="form-inline mb-3">
+    <input type="text" name="searchString" class="form-control mr-2"
+           placeholder="Search by name"
+           value="@(Context.Request.Query["searchString"])" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
 <table border="1" cellpadding="5">
     <thead>
@@ -25,6 +36,10 @@
                 <td>
                     <a asp-action="Details" asp-route-id="@student.Id">Details</a>
                     <a asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@student.Id" method="post" style="display:inline;"
+                          onsubmit="return confirm('Are you sure you want to delete this student?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
                 </td>
             </tr>
         }
